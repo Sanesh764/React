@@ -3,14 +3,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import UserContextProvider from './context/UserContextProvider'
+import Login from './components/Login'
+import Profile from './components/Profile'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>we study context api today</h1>
-    </>
+   <UserContextProvider>
+    <h1>we study context api</h1>
+    <Login/>
+    <Profile/>
+   </UserContextProvider>
   )
 }
 
