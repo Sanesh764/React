@@ -3,15 +3,16 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import CompA from './sanesh/CompA';
 import CompB from './sanesh/CompB';
-
+import { Counter } from './Counter';
 //import App from './sanesh/My.jsx';
 import Sanesh from './sanesh/My'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Sanesh />
+    {/* <Sanesh />
     <CompA/>
-    <CompB/>
+    <CompB/> */}
+<Counter/>
   </StrictMode>,
 )
