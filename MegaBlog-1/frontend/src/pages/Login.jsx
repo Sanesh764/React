@@ -1,11 +1,101 @@
-import React from 'react'
+import { useState } from "react";
+import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 
-function Login() {
+export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 flex items-center justify-center p-5">
+      <div className="w-full max-w-md bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white">
 
-export default Login
+        <h1 className="text-4xl font-bold text-center text-gray-800">
+          Welcome Back
+        </h1>
+
+        <p className="text-center text-gray-500 mt-2 mb-8">
+          Login to continue
+        </p>
+
+        <form className="space-y-6">
+
+          {/* Email */}
+
+          <div>
+            <label className="text-sm font-semibold text-gray-700">
+              Email
+            </label>
+
+            <div className="relative mt-2">
+              <Mail
+                size={20}
+                className="absolute left-4 top-3.5 text-gray-400"
+              />
+
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full rounded-xl border border-gray-300 py-3 pl-12 pr-4 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+              />
+            </div>
+          </div>
+
+          {/* Password */}
+
+          <div>
+            <label className="text-sm font-semibold text-gray-700">
+              Password
+            </label>
+
+            <div className="relative mt-2">
+              <Lock
+                size={20}
+                className="absolute left-4 top-3.5 text-gray-400"
+              />
+
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full rounded-xl border border-gray-300 py-3 pl-12 pr-12 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-3 text-gray-500"
+              >
+                {showPassword ? <EyeOff /> : <Eye />}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-between text-sm">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" />
+              Remember me
+            </label>
+
+            <a
+              href="#"
+              className="text-blue-600 hover:underline"
+            >
+              Forgot Password?
+            </a>
+          </div>
+
+          <button className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition">
+            Login
+          </button>
+
+        </form>
+
+        <p className="text-center mt-8 text-gray-600">
+          Don't have an account?{" "}
+          <a href="/signup" className="text-blue-600 font-semibold">
+            Sign Up
+          </a>
+        </p>
+
+      </div>
+    </div>
+  );
+}
